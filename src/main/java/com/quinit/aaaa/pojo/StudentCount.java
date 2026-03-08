@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class JobOption {
-    private List<Object> jobList;
-    private List<Object> dataList;
+public class StudentCount {
+    List<Object> clazzList;
+    List<Object> dataList;
 }

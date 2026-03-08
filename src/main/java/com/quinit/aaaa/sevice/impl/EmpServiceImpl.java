@@ -6,6 +6,7 @@ import com.github.pagehelper.PageHelper;
 import com.quinit.aaaa.mapper.EmpExprMapper;
 import com.quinit.aaaa.mapper.EmpMapper;
 import com.quinit.aaaa.pojo.*;
+import com.quinit.aaaa.pojo.queryparam.EmpQueryParam;
 import com.quinit.aaaa.sevice.EmpLogService;
 import com.quinit.aaaa.sevice.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -97,6 +97,11 @@ public class EmpServiceImpl implements EmpService {
         }
 
 
+    }
+
+    @Override
+    public List<Emp> getAllEmpInfo() {
+        return empMapper.getAllEmpInfo();
     }
 
 }

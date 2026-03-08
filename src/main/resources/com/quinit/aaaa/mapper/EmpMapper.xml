@@ -35,7 +35,7 @@
             <if test="name != null and name != ''">
                 e.name like concat('%',#{name},'%')
             </if>
-            <if test="gender != null">
+            <if test="gender != null and gender != ''">
                 and e.gender = #{gender}
             </if>
             <if test="begin != null and end != null">
@@ -89,5 +89,12 @@
     <select id="getEmpGenderData" resultType="java.util.Map">
         select if(gender=1,'男性员工','女性员工') name,count(*) value from emp group by gender;
     </select>
-
+    <select id="getAllEmpInfo" resultType="com.quinit.aaaa.pojo.Emp">
+        select id, username, password, name, gender, phone, job, salary, image, entry_date, dept_id, create_time, update_time from emp;
+    </select>
+    <select id="deptEmpCount" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM emp
+        WHERE dept_id = #{id};
+    </select>
 </mapper>

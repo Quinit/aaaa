@@ -27,4 +27,16 @@ public class GlobalExceptionHandler {
         return Result.error(errMsg.split(" ")[2] + "已存在");
     }
 
+    @ExceptionHandler
+    public Result DeptNotEmptyException(DeptNotEmptyException e){
+        log.error("捕获到异常:{}",e);
+        return Result.error("部门下有员工，不能删除");
+    }
+
+    @ExceptionHandler
+    public Result LoginException(LoginException e){
+        log.error("捕获到异常:{}",e);
+        return Result.error("用户名或密码错误");
+    }
+
 }

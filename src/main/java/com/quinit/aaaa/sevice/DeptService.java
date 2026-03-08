@@ -1,5 +1,6 @@
 package com.quinit.aaaa.sevice;
 
+import com.quinit.aaaa.exception.DeptNotEmptyException;
 import com.quinit.aaaa.pojo.Dept;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public interface DeptService {
      */
     List<Dept> findAll();
 
-    void deleteById(Integer id);
+    void deleteById(Integer id) throws DeptNotEmptyException;
 
     void addDept(Dept dept);
 

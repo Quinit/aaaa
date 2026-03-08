@@ -1,19 +1,14 @@
 package com.quinit.aaaa.controller;
 
 import com.quinit.aaaa.pojo.Emp;
-import com.quinit.aaaa.pojo.EmpQueryParam;
+import com.quinit.aaaa.pojo.queryparam.EmpQueryParam;
 import com.quinit.aaaa.pojo.PageResult;
 import com.quinit.aaaa.pojo.Result;
 import com.quinit.aaaa.sevice.EmpService;
 import lombok.extern.slf4j.Slf4j;
-import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
@@ -24,12 +19,6 @@ public class EmpController {
     @Autowired
     private EmpService empService;
 
-//    String name,
-//    String gender,
-//    @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
-//    @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end,
-//    @RequestParam(defaultValue = "1") Integer page,
-//    @RequestParam(defaultValue = "10") Integer pageSize
     @GetMapping
     public Result getEmp(EmpQueryParam empQueryParam){
         log.info("分页查询");
@@ -67,5 +56,12 @@ public class EmpController {
         log.info("更新员工:{}", emp);
         empService.updateEmpInfo(emp);
         return Result.success();
+    }
+
+    @GetMapping("/list")
+    public Result getAllEmpInfo(){
+        log.info("查询所有员工");
+        List<Emp> emp = empService.getAllEmpInfo();
+        return Result.success(emp);
     }
 }

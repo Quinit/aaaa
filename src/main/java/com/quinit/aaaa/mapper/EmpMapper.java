@@ -1,7 +1,7 @@
 package com.quinit.aaaa.mapper;
 
 import com.quinit.aaaa.pojo.Emp;
-import com.quinit.aaaa.pojo.EmpQueryParam;
+import com.quinit.aaaa.pojo.queryparam.EmpQueryParam;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -35,4 +35,8 @@ public interface EmpMapper {
 
     @MapKey("name")
     List<Map<String, Object>> getEmpGenderData();
+
+    List<Emp> getAllEmpInfo();
+
+    int deptEmpCount(Integer id);
 }
